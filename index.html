@@ -14,72 +14,95 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: #fff; line-height: 1.6; overflow-x: hidden; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: #fff; line-height: 1.6; }
 
-    /* --- CENTERED TABS --- */
-    header { background: rgba(0,0,0,0.9); padding: 20px; position: sticky; top: 0; z-index: 1000; }
-    nav { display: flex; justify-content: center; align-items: center; gap: 30px; width: 100%; }
-    nav a { color: #fff; text-decoration: none; font-weight: 600; font-family: 'Montserrat'; font-size: 1rem; }
-    .order-btn { background: var(--primary); padding: 10px 25px; border-radius: 50px; text-decoration: none; }
-
-    /* --- HERO WITH LOGO --- */
-    .hero { 
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('logo.jpg.JPG') center/contain no-repeat;
-      background-attachment: fixed;
-      min-height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
+    /* --- NAVIGATION CENTERED --- */
+    header { 
+      background: rgba(0,0,0,0.9); 
+      padding: 25px 0; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      text-align: center; /* Centers everything inside */
     }
+    nav a { 
+      color: #fff; 
+      text-decoration: none; 
+      font-weight: 600; 
+      font-family: 'Montserrat'; 
+      margin: 0 15px; 
+      display: inline-block;
+    }
+    .order-btn { 
+      background: var(--primary); 
+      padding: 10px 25px; 
+      border-radius: 50px; 
+    }
+
+    /* --- HERO WITH HARD-LOCKED LOGO --- */
+    .hero { 
+      position: relative;
+      height: 85vh; 
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center; 
+      text-align: center;
+      background: #000;
+      overflow: hidden;
+    }
+    .hero-logo-img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: contain;
+      opacity: 0.5;
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
     .hero h2 { 
       font-family: 'Lobster', cursive; 
-      font-size: 4.5rem; 
+      font-size: 5rem; 
       color: var(--accent); 
-      text-shadow: 3px 3px 0 #000, -2px -2px 0 #000; 
+      text-shadow: 3px 3px 0 #000; 
     }
 
-    /* --- SYMMETRICAL 2-COLUMN MENU --- */
-    section { padding: 80px 40px; max-width: 1200px; margin: auto; }
+    /* --- MENU: TWO COLUMNS SIDE-BY-SIDE --- */
+    .menu-section { padding: 60px 20px; max-width: 1000px; margin: auto; }
     .menu-grid { 
       display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      gap: 25px; 
+      grid-template-columns: 1fr 1fr; /* TWO COLUMNS */
+      gap: 20px; 
     }
     .card { 
       background: rgba(255,255,255,0.05); 
       border: 3px solid var(--neon-green); 
-      padding: 40px 20px;
-      border-radius: 20px;
+      padding: 35px;
+      border-radius: 15px;
       text-align: center;
-      min-height: 180px; 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
-    .card h4 { font-family: 'Montserrat'; color: var(--accent); font-size: 1.6rem; }
+    .card h4 { color: var(--accent); font-family: 'Montserrat'; font-size: 1.5rem; }
 
-    /* --- ORIGINAL GALLERY LAYOUT --- */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
+    /* --- GALLERY --- */
+    .gallery-section { padding: 40px 20px; max-width: 1200px; margin: auto; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
     .gallery img { width: 100%; border-radius: 15px; height: 300px; object-fit: cover; }
 
-    /* --- ORIGINAL MAP LAYOUT --- */
-    .map-container { margin-top: 40px; height: 450px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
+    /* --- MAP --- */
+    .map-container { max-width: 1200px; margin: 40px auto; height: 450px; border-radius: 20px; overflow: hidden; }
     iframe { width: 100%; height: 100%; border: 0; }
 
-    /* --- ORIGINAL OWNERS SECTION --- */
-    .about-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; margin-top: 50px; }
+    /* --- ABOUT / OWNERS --- */
+    .about-section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+    .about-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
     .about-text { flex: 1; min-width: 300px; }
     .about-image { flex: 1; min-width: 500px; }
-    .about-image img { width: 100%; max-width: 600px; border-radius: 25px; border: 4px solid var(--primary); }
+    .about-image img { width: 100%; border-radius: 25px; border: 4px solid var(--primary); }
 
-    footer { text-align: center; padding: 50px; background: #000; margin-top: 50px; }
+    footer { text-align: center; padding: 40px; background: #000; }
 
     @media(max-width: 768px) {
-      .menu-grid { grid-template-columns: 1fr; }
       .hero h2 { font-size: 3rem; }
+      .menu-grid { grid-template-columns: 1fr; }
       .about-image { min-width: 100%; }
     }
   </style>
@@ -91,20 +114,21 @@
     <a href="#home">Home</a>
     <a href="#menu">Menu</a>
     <a href="#gallery">Photos</a>
-    <a href="#contact">Visit</a>
     <a href="#about">Our Story</a>
     <a href="tel:7209479386" class="order-btn">Order Now</a>
   </nav>
 </header>
 
 <div class="hero" id="home">
-  <h2>From the Juárez streets</h2>
-  <h2 style="color:var(--primary)">to the Denver eats</h2>
-  <p style="font-family:'Montserrat'; font-weight:bold; font-size:1.4rem; margin-top:10px;">Women-Owned • Locally Made • Denver Proud</p>
+  <img src="logo.jpg.JPG" class="hero-logo-img" alt="Logo">
+  <div class="hero-content">
+    <h2>From the Juárez streets</h2>
+    <h2 style="color:var(--primary)">to the Denver eats</h2>
+  </div>
 </div>
 
-<section id="menu">
-  <h2 style="text-align:center; color:var(--primary); font-family:'Montserrat'; margin-bottom:40px; font-size:2.5rem;">Our Menu</h2>
+<section class="menu-section" id="menu">
+  <h2 style="text-align:center; color:var(--primary); font-family:'Montserrat'; margin-bottom:40px; font-size: 2.5rem;">Our Menu</h2>
   <div class="menu-grid">
     <div class="card"><h4>Norteños Burritos</h4><p>$7</p></div>
     <div class="card"><h4>Big Burrotes</h4><p>$13</p></div>
@@ -115,8 +139,7 @@
   </div>
 </section>
 
-<section id="gallery">
-  <h2 style="text-align:center; color:var(--primary); font-family:'Montserrat'; margin-bottom:40px; font-size:2.5rem;">Food Gallery</h2>
+<section class="gallery-section" id="gallery">
   <div class="gallery">
     <img src="https://images.unsplash.com/photo-1617196033531-6d0b5a6f5f8c">
     <img src="https://images.unsplash.com/photo-1625944526364-0c9b9cde1c3b">
@@ -124,23 +147,15 @@
   </div>
 </section>
 
-<section id="contact">
-  <h2 style="text-align:center; color:var(--primary); font-family:'Montserrat'; margin-bottom:20px; font-size:2.5rem;">Visit Us</h2>
-  <div style="text-align: center; font-size: 1.2rem;">
-    <p><strong>1135 E Evans Ave #102</strong>, Denver, CO 80210</p>
-    <p>6 AM – 6 PM | 720-947-9386</p>
-  </div>
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.081829393306!2d-104.9748682!3d39.6782354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f0782e44535%3A0xc3f7a7556f874d61!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
-  </div>
-</section>
+<div class="map-container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.041695507519!2d-104.9748688!3d39.6780005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7ef88887959b%3A0x77d698e6c43424d8!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1707174400000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+</div>
 
-<section id="about">
+<section class="about-section" id="about">
   <div class="about-container">
     <div class="about-text">
-      <h2 style="color:var(--primary); font-family:'Montserrat'; margin-bottom:20px; font-size:2.5rem;">Our Story</h2>
-      <p style="font-size:1.1rem; margin-bottom:15px;">At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business.</p>
-      <p style="font-size:1.1rem;">Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver to share the soul-deep seasoning and time-honored traditions of their home.</p>
+      <h2 style="color:var(--primary); font-family:'Montserrat'; margin-bottom:20px; font-size: 2.5rem;">Our Story</h2>
+      <p style="font-size: 1.2rem;">Founded by Yamilex and Maria Rojas, we bring the authentic soul of Ciudad Juárez to Denver. Every burrito is a piece of our history.</p>
     </div>
     <div class="about-image">
       <img src="owners.jpg" alt="Yamilex and Maria Rojas">
@@ -149,7 +164,7 @@
 </section>
 
 <footer>
-  <p>© 2026 El Burrito y el Burrote Mexican Grill • Denver Proud</p>
+  <p>© 2026 El Burrito y el Burrote Mexican Grill</p>
 </footer>
 
 </body>
