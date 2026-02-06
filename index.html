@@ -19,7 +19,6 @@
       --glass: rgba(255, 255, 255, 0.05);
     }
 
-    /* Light Mode Logic */
     body.light-mode {
       --bg: #f5f5f7;
       --light: #1a1a1a;
@@ -32,7 +31,6 @@
     header { background: rgba(0,0,0,0.9); padding: 14px 40px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
     nav { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: auto; }
     
-    /* Bigger Logo in Nav */
     nav img { height: 100px; transition: 0.3s; }
     nav a { color: #fff; margin-left: 18px; text-decoration: none; font-weight: 600; font-family: 'Montserrat'; }
     nav a:hover { color: var(--primary); }
@@ -42,21 +40,26 @@
 
     .lang-toggle { cursor: pointer; margin-left: 15px; font-size: 0.85rem; opacity: 0.9; }
 
-    /* Hero with Parallax & Bigger Logo */
+    /* Hero Section with LOGO as Background */
     .hero { 
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover no-repeat; 
-      background-attachment: fixed;
-      padding: 120px 40px; 
+      /* We use your logo file here as the background */
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('logo.jpg.JPG') center/contain no-repeat; 
+      background-attachment: fixed; /* Parallax effect */
+      padding: 150px 40px; 
       text-align: center; 
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-    .hero-logo-main { height: 200px; margin-bottom: 20px; }
-    .hero h2 { font-family: 'Montserrat'; font-size: 3.2rem; color: var(--accent); margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 25px; }
+
+    .hero h2 { font-family: 'Montserrat'; font-size: 3.5rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; }
+    .hero p { font-size: 1.4rem; margin-bottom: 25px; }
 
     section { padding: 80px 40px; max-width: 1200px; margin: auto; }
     h3.section-title { font-family: 'Montserrat'; text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--primary); }
 
-    /* Glassmorphism Cards */
     .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
     .card { 
       background: var(--glass); 
@@ -72,7 +75,6 @@
 
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .gallery img { width: 100%; border-radius: 14px; height: 230px; object-fit: cover; transition: 0.3s; }
-    .gallery img:hover { transform: scale(1.05); }
 
     .contact { text-align: center; }
     iframe { width: 100%; border-radius: 14px; margin-top: 25px; height: 320px; border: 0; }
@@ -85,6 +87,7 @@
       nav { flex-direction: column; }
       nav a { margin: 8px 0 0; }
       nav img { height: 60px; }
+      .hero { background-attachment: scroll; } /* Parallax often breaks on mobile, so we set to scroll */
     }
   </style>
 </head>
@@ -106,8 +109,6 @@
 </header>
 
 <div class="hero" id="home">
-  <img src="logo.jpg.JPG" class="hero-logo-main" data-aos="zoom-in" />
-  
   <h2 data-aos="fade-right" data-en="From the Ciudad Juárez streets" data-es="De las calles de Ciudad Juárez">From the Ciudad Juárez streets</h2>
   <h2 data-aos="fade-left" style="color:var(--primary)" data-en="to the Denver eats" data-es="a los sabores de Denver">to the Denver eats</h2>
   
@@ -151,7 +152,7 @@
   <p><strong>1135 E Evans Ave #102</strong></p>
   <p>Denver, CO 80210</p>
   <p><strong>Hours:</strong> 6 AM – 6 PM | <strong>Phone:</strong> 720-947-9386</p>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.123456789!2d-104.974!3d39.678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQwJzQwLjgiTiAxMDTCsDU4JzI2LjQiVw!5e0!3m2!1sen!2sus!4v123456789"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.165242784742!2d-104.9754426!3d39.6786196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f078e367807%3A0x7d656046468729c4!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000"></iframe>
 </section>
 
 <footer>
