@@ -20,61 +20,49 @@
       --neon: rgba(233, 30, 99, 0.6);
     }
 
-    body.light-mode {
-      --bg: #f5f5f7;
-      --light: #1a1a1a;
-      --glass: rgba(0, 0, 0, 0.05);
-      --neon: rgba(233, 30, 99, 0.2);
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--light); background: var(--bg); transition: 0.4s; overflow-x: hidden; }
     
     header { background: rgba(0,0,0,0.9); padding: 14px 40px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
     nav { display: flex; justify-content: flex-end; align-items: center; max-width: 1300px; margin: auto; }
-    
     nav a { color: #fff; margin-left: 18px; text-decoration: none; font-weight: 600; font-family: 'Montserrat'; }
-    nav a:hover { color: var(--primary); }
 
     .order-btn { background: var(--primary); color: #fff !important; padding: 10px 20px; border-radius: 25px; margin-left: 18px; transition: 0.3s; border: none; cursor: pointer; display: inline-block; text-decoration: none; }
-    .order-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4); }
 
-    .lang-toggle { cursor: pointer; margin-left: 15px; font-size: 0.85rem; opacity: 0.9; }
-
-    /* --- HERO BACKGROUND RESTORED --- */
+    /* --- HERO BACKGROUND (LOGO MADE MORE VISIBLE) --- */
     .hero { 
-      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('logo.jpg.JPG') center/contain no-repeat; 
+      /* Reduced overlay from 0.7 to 0.4 so the logo is much clearer */
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('logo.jpg.JPG'); 
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
       background-attachment: fixed;
       padding: 150px 40px; 
       text-align: center; 
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
     }
 
     .hero h2 { 
       font-family: 'Lobster', cursive; 
-      font-size: 4rem; 
+      font-size: 4.5rem; 
       color: var(--accent); 
       margin-bottom: 10px; 
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      /* Stronger outline to handle the brighter background */
+      text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
     }
     
-    .hero p { font-size: 1.4rem; margin-bottom: 25px; font-family: 'Montserrat'; }
+    .hero p { font-size: 1.5rem; margin-bottom: 25px; font-family: 'Montserrat'; font-weight: bold; text-shadow: 2px 2px 4px #000; }
 
     section { padding: 80px 40px; max-width: 1200px; margin: auto; }
     h3.section-title { font-family: 'Montserrat'; text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--primary); }
 
-    /* --- 3D TILT EFFECT SPICE --- */
-    .menu-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 30px; 
-      perspective: 1500px; 
-    }
-    
+    /* --- 3D TILT EFFECT MENU --- */
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; perspective: 1500px; }
     .card { 
       background: var(--glass); 
       padding: 40px 20px; 
@@ -85,33 +73,26 @@
       transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
       transform-style: preserve-3d;
     }
-
     .card:hover { 
-      transform: translateZ(50px) rotateX(10deg) rotateY(-10deg); 
+      transform: translateZ(50px) rotateX(12deg) rotateY(-12deg); 
       border-color: var(--primary);
-      box-shadow: 20px 20px 50px rgba(0,0,0,0.5), 0 0 30px var(--neon);
+      box-shadow: 20px 20px 50px rgba(0,0,0,0.6), 0 0 30px var(--neon);
     }
+    .card h4 { transform: translateZ(40px); color: var(--accent); font-size: 1.6rem; font-family: 'Montserrat'; }
+    .card p { transform: translateZ(30px); font-size: 1.4rem; font-weight: bold; color: #fff; }
 
-    .card h4 { transform: translateZ(30px); color: var(--accent); font-size: 1.5rem; font-family: 'Montserrat'; }
-    .card p { transform: translateZ(20px); font-size: 1.3rem; font-weight: bold; }
-
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .gallery img { width: 100%; border-radius: 14px; height: 230px; object-fit: cover; }
-
-    .contact { text-align: center; }
     .map-container { margin-top: 25px; border-radius: 20px; overflow: hidden; height: 400px; border: 1px solid var(--glass); }
     iframe { width: 100%; height: 100%; border: 0; }
 
     .about-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
-    .about-text { flex: 2; min-width: 300px; text-align: left; }
-    .about-image { flex: 1; min-width: 300px; }
+    .about-text { flex: 2; min-width: 300px; }
     .about-image img { width: 100%; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 10px 40px var(--neon); }
 
-    footer { background: #000; color: #fff; text-align: center; padding: 40px; margin-top: 50px; border-top: 1px solid var(--glass); }
+    footer { background: #000; color: #fff; text-align: center; padding: 40px; margin-top: 50px; }
 
     @media(max-width: 600px) {
-      .hero h2 { font-size: 2.8rem; }
-      .card:hover { transform: translateY(-10px); }
+      .hero h2 { font-size: 3rem; }
+      .hero { background-attachment: scroll; }
     }
   </style>
 </head>
@@ -119,16 +100,11 @@
 
 <header>
   <nav>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#gallery">Photos</a>
-      <a href="#contact">Visit</a>
-      <a href="#about">Our Story</a>
-      <a href="tel:7209479386" class="order-btn">Order Now</a>
-      <span class="lang-toggle" onclick="toggleLang()">EN / ES</span>
-      <span class="lang-toggle" onclick="document.body.classList.toggle('light-mode')">🌓</span>
-    </div>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Visit</a>
+    <a href="#about">Our Story</a>
+    <a href="tel:7209479386" class="order-btn">Order Now</a>
   </nav>
 </header>
 
@@ -151,21 +127,14 @@
   </div>
 </section>
 
-<section id="gallery">
-  <h3 class="section-title">Food Gallery</h3>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1617196033531-6d0b5a6f5f8c" data-aos="zoom-in" />
-    <img src="https://images.unsplash.com/photo-1625944526364-0c9b9cde1c3b" data-aos="zoom-in" data-aos-delay="100" />
-    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" data-aos="zoom-in" data-aos-delay="200" />
-  </div>
-</section>
-
 <section id="contact" class="contact">
   <h3 class="section-title">Visit Us</h3>
-  <p><strong>1135 E Evans Ave #102</strong>, Denver, CO 80210</p>
-  <p><strong>Hours:</strong> 6 AM – 6 PM | <strong>Phone:</strong> 720-947-9386</p>
+  <div style="text-align: center; margin-bottom: 15px;">
+    <p><strong>1135 E Evans Ave #102</strong>, Denver, CO 80210</p>
+    <p><strong>Hours:</strong> 6 AM – 6 PM | <strong>Phone:</strong> 720-947-9386</p>
+  </div>
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.948218204618!2d-104.9760777!3d39.6784537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f07367c4423%3A0x876c7f07367c4423!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.3664327986064!2d-104.9754178234676!3d39.67812820042459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f070c793223%3A0xc30d092d9711a385!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </section>
 
@@ -173,8 +142,8 @@
   <h3 class="section-title">Our Story</h3>
   <div class="about-container">
     <div class="about-text" data-aos="fade-right">
-      <p style="margin-bottom: 20px; font-size: 1.1rem;">At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.</p>
-      <p style="font-size: 1.1rem;">Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico.</p>
+      <p style="margin-bottom: 20px;">At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.</p>
+      <p>Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico.</p>
     </div>
     <div class="about-image" data-aos="fade-left">
       <img src="owners.jpg" alt="Yamilex and Maria Rojas" onerror="this.src='https://via.placeholder.com/500x600?text=Meet+the+Owners'" />
@@ -187,9 +156,7 @@
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: false });
-</script>
+<script>AOS.init({ duration: 1000, once: false });</script>
 
 </body>
 </html>
