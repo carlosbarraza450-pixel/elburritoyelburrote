@@ -4,59 +4,158 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>El Burrito y el Burrote Mexican Grill</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #e91e63; /* pink */
-      --secondary: #00b894; /* teal/green */
-      --accent: #ffd166; /* gold */
-      --dark: #0b0b0b;
-      --light: #ffffff;
-      --bg: #0f0f14;
+      --primary: #e91e63; /* Pink */
+      --secondary: #00b894; /* Teal */
+      --accent: #ffd166; /* Gold */
+      --dark-bg: #0f0f14;
+      --light-bg: #f8f9fa;
+      --card-glass-dark: rgba(255, 255, 255, 0.05);
+      --card-glass-light: rgba(255, 255, 255, 0.7);
+      --text-main: #ffffff;
+      --nav-bg: rgba(0, 0, 0, 0.9);
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: var(--light); background: var(--bg); }
 
-    header { background: rgba(0,0,0,0.9); padding: 14px 40px; position: sticky; top: 0; z-index: 100; }
+    /* Light Mode Overrides */
+    body.light-mode {
+      --bg: var(--light-bg);
+      --text-main: #1a1a1a;
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --card-bg: var(--card-glass-light);
+    }
+
+    body {
+      --bg: var(--dark-bg);
+      --card-bg: var(--card-glass-dark);
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      transition: var(--transition);
+      scroll-behavior: smooth;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    header { 
+      background: var(--nav-bg); 
+      padding: 14px 40px; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: var(--transition);
+    }
+
     nav { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: auto; }
-    nav img { height: 50px; }
-    nav a { color: var(--light); margin-left: 18px; text-decoration: none; font-weight: 600; }
+    
+    /* Logo styling */
+    nav img { height: 60px; width: auto; object-fit: contain; }
+
+    nav a { color: var(--text-main); margin-left: 18px; text-decoration: none; font-weight: 600; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: 0.3s; }
     nav a:hover { color: var(--primary); }
 
-    .order-btn { background: var(--primary); color: var(--light); padding: 10px 20px; border-radius: 25px; margin-left: 18px; }
-    .order-btn:hover { background: #c2185b; }
+    .order-btn { 
+      background: var(--primary); 
+      color: #fff !important; 
+      padding: 12px 24px; 
+      border-radius: 50px; 
+      margin-left: 18px; 
+      display: inline-block;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-    .lang-toggle { cursor: pointer; margin-left: 15px; font-size: 0.85rem; opacity: 0.9; }
+    .order-btn:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5);
+      background: #d81b60;
+    }
 
-    .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover no-repeat; padding: 120px 40px; text-align: center; }
-    .hero h2 { font-size: 3.2rem; color: var(--accent); margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 25px; }
+    .controls { display: flex; align-items: center; }
+    .lang-toggle, .theme-toggle { 
+        cursor: pointer; 
+        margin-left: 15px; 
+        font-size: 1.2rem; 
+        background: none; 
+        border: none; 
+        color: var(--text-main);
+    }
+
+    .hero { 
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover no-repeat; 
+      padding: 140px 40px; 
+      text-align: center; 
+    }
+    .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--accent); margin-bottom: 15px; }
+    .hero p { font-size: 1.3rem; margin-bottom: 30px; }
 
     section { padding: 80px 40px; max-width: 1200px; margin: auto; }
-    h3.section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--primary); }
+    h3.section-title { 
+      font-family: 'Montserrat', sans-serif;
+      text-align: center; 
+      margin-bottom: 50px; 
+      font-size: 2.5rem; 
+      color: var(--primary); 
+    }
 
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-    .card { background: #15151f; padding: 25px; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); text-align: center; }
-    .card h4 { margin-bottom: 12px; color: var(--accent); font-size: 1.3rem; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .card { 
+      background: var(--card-bg); 
+      padding: 30px; 
+      border-radius: 20px; 
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      text-align: center; 
+      transition: var(--transition);
+    }
+    .card:hover {
+      transform: scale(1.03);
+      border: 1px solid var(--primary);
+    }
+    .card h4 { margin-bottom: 12px; color: var(--accent); font-size: 1.4rem; font-family: 'Montserrat', sans-serif;}
 
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .gallery img { width: 100%; border-radius: 14px; height: 230px; object-fit: cover; }
-
-    .services ul { list-style: none; text-align: center; }
-    .services li { margin-bottom: 10px; font-weight: 600; }
+    .gallery img { 
+        width: 100%; 
+        border-radius: 20px; 
+        height: 250px; 
+        object-fit: cover; 
+        transition: 0.4s;
+    }
+    .gallery img:hover { transform: scale(1.02); }
 
     .contact { text-align: center; }
-    .contact p { margin-bottom: 8px; }
+    iframe { width: 100%; border-radius: 20px; margin-top: 25px; height: 350px; border: 0; transition: 0.3s; }
+    
+    /* Dark mode map filter */
+    body:not(.light-mode) iframe { filter: invert(90%) hue-rotate(180deg); }
 
-    iframe { width: 100%; border-radius: 14px; margin-top: 25px; height: 320px; border: 0; }
+    .qr img { width: 180px; margin-top: 20px; border-radius: 15px; background: #fff; padding: 10px; }
 
-    .qr img { width: 180px; margin-top: 20px; border-radius: 10px; background: #fff; padding: 10px; }
+    footer { background: rgba(0,0,0,0.1); text-align: center; padding: 40px; margin-top: 50px; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
-    footer { background: #000; color: var(--light); text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
-
-    @media(max-width: 600px) {
-      .hero h2 { font-size: 2.3rem; }
-      nav { flex-direction: column; }
-      nav a { margin: 8px 0 0; }
+    @media(max-width: 768px) {
+      header { padding: 15px 20px; }
+      .hero h2 { font-size: 2.5rem; }
+      nav { flex-direction: column; gap: 15px; }
+      nav a { margin: 5px; }
     }
   </style>
 </head>
@@ -64,144 +163,85 @@
 
 <header>
   <nav>
-    <!-- Upload your logo image to GitHub and name it logo.png -->
-    <img src="logo.png" alt="El Burrito y el Burrote Logo" />
-    <div>
+    <img src="logo.jpg.JPG" alt="El Burrito y el Burrote Logo" />
+    <div class="controls">
       <a href="#home" data-en="Home" data-es="Inicio">Home</a>
       <a href="#menu" data-en="Menu" data-es="Menú">Menu</a>
-      <a href="#gallery" data-en="Photos" data-es="Fotos">Photos</a>
       <a href="#about" data-en="About" data-es="Nosotros">About</a>
-      <a href="#contact" data-en="Visit" data-es="Visítanos">Visit</a>
       <a href="tel:7209479386" class="order-btn" data-en="Order Now" data-es="Ordena Ahora">Order Now</a>
-      <span class="lang-toggle" onclick="toggleLang()">EN / ES</span>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
+      <span class="lang-toggle" onclick="toggleLang()">EN | ES</span>
     </div>
   </nav>
 </header>
 
 <div class="hero" id="home">
-  <h2 data-en="From the Ciudad Juárez streets to the Denver eats" data-es="De las calles de Ciudad Juárez a Denver">From the Ciudad Juárez streets to the Denver eats</h2>
-  <p data-en="Women-Owned • Locally Made • Denver Proud" data-es="Negocio de Mujeres • Hecho Local • Orgullo de Denver">Women-Owned • Locally Made • Denver Proud</p>
+  <h2 data-aos="zoom-in" data-en="From Juárez to Denver" data-es="De Juárez a Denver">From Juárez to Denver</h2>
+  <p data-aos="fade-up" data-aos-delay="200" data-en="Women-Owned • Locally Made" data-es="Negocio de Mujeres • Hecho Local">Women-Owned • Locally Made</p>
   <a href="tel:7209479386" class="order-btn" data-en="Call to Order" data-es="Llama para Ordenar">Call to Order</a>
 </div>
 
 <section id="menu">
-  <h3 class="section-title" data-en="Our Menu" data-es="Nuestro Menú">Our Menu</h3>
+  <h3 class="section-title" data-aos="fade-up" data-en="Our Menu" data-es="Nuestro Menú">Our Menu</h3>
   <div class="menu-grid">
-
-    <div class="card">
-      <h4>Norteños Burritos</h4>
-      <p>$7</p>
-    </div>
-
-    <div class="card">
-      <h4>Big Burrotes</h4>
-      <p>$13</p>
-    </div>
-
-    <div class="card">
-      <h4>Breakfast Burrotes</h4>
-      <p>$10</p>
-    </div>
-
-    <div class="card">
-      <h4>Burrito Bowls</h4>
-      <p>$10</p>
-    </div>
-
-    <div class="card">
-      <h4>Street Tacos</h4>
-      <p>$3 each</p>
-    </div>
-
-    <div class="card">
-      <h4>Taco Meal</h4>
-      <p>3 tacos + rice & beans – $10</p>
-    </div>
-
-    <div class="card">
-      <h4>Crunchy Taco Meal</h4>
-      <p>3 crunchy tacos + rice & beans – $8</p>
-    </div>
-
-    <div class="card">
-      <h4>Guisado Tacos</h4>
-      <p>$4 each</p>
-    </div>
-
-    <div class="card">
-      <h4>Rolled Taquitos</h4>
-      <p>$3 each</p>
-    </div>
-
-    <div class="card">
-      <h4>Taquito Meal</h4>
-      <p>3 rolled taquitos + rice & beans – $15</p>
-    </div>
-
-    <div class="card">
-      <h4>Chilaquiles</h4>
-      <p>$14</p>
-    </div>
-
-    <div class="card">
-      <h4>Breakfast Plates</h4>
-      <p>$13</p>
-    </div>
-
-    <div class="card">
-      <h4>Loaded Fries</h4>
-      <p>$15</p>
-    </div>
-
-    <div class="card">
-      <h4>Quesabirrias Plate</h4>
-      <p>$16</p>
-    </div>
-
+    <div class="card" data-aos="fade-up"><h4>Norteños Burritos</h4><p>$7</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100"><h4>Big Burrotes</h4><p>$13</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200"><h4>Breakfast Burrotes</h4><p>$10</p></div>
+    <div class="card" data-aos="fade-up"><h4>Burrito Bowls</h4><p>$10</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100"><h4>Street Tacos</h4><p>$3 each</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200"><h4>Taco Meal</h4><p>$10</p></div>
+    <div class="card" data-aos="fade-up"><h4>Chilaquiles</h4><p>$14</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100"><h4>Quesabirrias</h4><p>$16</p></div>
   </div>
 
-  <div class="qr">
-    <p style="margin-top:30px;">Scan for Menu</p>
+  <div class="qr" style="text-align: center;" data-aos="zoom-in">
+    <p style="margin-top:30px;">Scan for Full Menu</p>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://yourusername.github.io/elburritoyelburrote/#menu" alt="Menu QR Code" />
   </div>
 </section>
 
 <section id="gallery">
-  <h3 class="section-title">Food Gallery</h3>
+  <h3 class="section-title" data-aos="fade-up">Food Gallery</h3>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1617196033531-6d0b5a6f5f8c" />
-    <img src="https://images.unsplash.com/photo-1625944526364-0c9b9cde1c3b" />
-    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" />
+    <img src="https://images.unsplash.com/photo-1617196033531-6d0b5a6f5f8c" data-aos="flip-left" />
+    <img src="https://images.unsplash.com/photo-1625944526364-0c9b9cde1c3b" data-aos="flip-left" data-aos-delay="100" />
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" data-aos="flip-left" data-aos-delay="200" />
   </div>
 </section>
 
-<section id="about">
+<section id="about" style="text-align: center;" data-aos="fade-up">
   <h3 class="section-title">About Us</h3>
-  <p>Women-owned Mexican grill bringing Juárez-inspired flavors to Denver with love, culture, and bold taste.</p>
+  <p style="max-width: 700px; margin: auto; font-size: 1.1rem;">Women-owned Mexican grill bringing Juárez-inspired flavors to Denver with love, culture, and bold taste.</p>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact" data-aos="fade-up">
   <h3 class="section-title">Visit Us</h3>
-  <p><strong>1135 E Evans Ave #102</strong></p>
-  <p>Denver, CO 80210</p>
-  <p><strong>Hours:</strong> 6 AM – 6 PM</p>
-  <p><strong>Phone:</strong> 720-947-9386</p>
-  <p><strong>Email:</strong> ElBurritoyelburrote@gmail.com</p>
-
-  <iframe src="https://www.google.com/maps?q=1135+E+Evans+Ave+Denver+CO+80210&output=embed"></iframe>
+  <p><strong>1135 E Evans Ave #102</strong>, Denver, CO 80210</p>
+  <p><strong>Hours:</strong> 6 AM – 6 PM | <strong>Phone:</strong> 720-947-9386</p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.123456789!2d-104.9723!3d39.6781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f0000000001%3A0x0!2zMTEzNSBFIEV2YW5zIEF2ZSAjMTAyLCBEZW52ZXIsIENPIDgwMjEw!5e0!3m2!1sen!2sus!4v1234567890"></iframe>
 </section>
 
 <footer>
   <p>© 2026 El Burrito y el Burrote Mexican Grill • Women-Owned • Denver Proud</p>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  // Initialize Animations
+  AOS.init({ duration: 1000, once: true });
+
+  // Language Toggle Logic
   let lang = 'en';
   function toggleLang() {
     lang = lang === 'en' ? 'es' : 'en';
     document.querySelectorAll('[data-en]').forEach(el => {
       el.textContent = el.getAttribute(`data-${lang}`);
     });
+  }
+
+  // Theme Toggle Logic
+  function toggleTheme() {
+    document.body.classList.toggle('light-mode');
   }
 </script>
 
