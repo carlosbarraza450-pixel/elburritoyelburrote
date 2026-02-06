@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>El Burrito y el Burrote Mexican Grill</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
@@ -29,7 +29,7 @@
     body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--light); background: var(--bg); transition: 0.4s; overflow-x: hidden; }
     
     header { background: rgba(0,0,0,0.9); padding: 14px 40px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
-    nav { display: flex; justify-content: flex-end; align-items: center; max-width: 1300px; margin: auto; } /* Adjusted to keep links right-aligned */
+    nav { display: flex; justify-content: flex-end; align-items: center; max-width: 1300px; margin: auto; }
     
     nav a { color: #fff; margin-left: 18px; text-decoration: none; font-weight: 600; font-family: 'Montserrat'; }
     nav a:hover { color: var(--primary); }
@@ -39,7 +39,7 @@
 
     .lang-toggle { cursor: pointer; margin-left: 15px; font-size: 0.85rem; opacity: 0.9; }
 
-    /* --- LOGO AS HERO BACKGROUND --- */
+    /* --- HERO BACKGROUND --- */
     .hero { 
       background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('logo.jpg.JPG') center/contain no-repeat; 
       background-attachment: fixed;
@@ -52,8 +52,17 @@
       align-items: center;
     }
 
-    .hero h2 { font-family: 'Montserrat'; font-size: 3.5rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; }
-    .hero p { font-size: 1.4rem; margin-bottom: 25px; }
+    /* --- LOBSTER FONT & OUTLINE --- */
+    .hero h2 { 
+      font-family: 'Lobster', cursive; 
+      font-size: 4rem; 
+      color: var(--accent); 
+      margin-bottom: 10px; 
+      /* Thin black outline using text-shadow */
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    
+    .hero p { font-size: 1.4rem; margin-bottom: 25px; font-family: 'Montserrat'; }
 
     section { padding: 80px 40px; max-width: 1200px; margin: auto; }
     h3.section-title { font-family: 'Montserrat'; text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--primary); }
@@ -71,11 +80,6 @@
     .card:hover { transform: scale(1.05); border-color: var(--primary); }
     .card h4 { margin-bottom: 12px; color: var(--accent); font-size: 1.3rem; font-family: 'Montserrat'; }
 
-    .about-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
-    .about-text { flex: 2; min-width: 300px; text-align: left; }
-    .about-image { flex: 1; min-width: 300px; }
-    .about-image img { width: 100%; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .gallery img { width: 100%; border-radius: 14px; height: 230px; object-fit: cover; transition: 0.3s; }
 
@@ -83,16 +87,20 @@
     .map-container { margin-top: 25px; border-radius: 14px; overflow: hidden; height: 400px; }
     iframe { width: 100%; height: 100%; border: 0; }
 
+    .about-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
+    .about-text { flex: 2; min-width: 300px; text-align: left; }
+    .about-image { flex: 1; min-width: 300px; }
+    .about-image img { width: 100%; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
     footer { background: #000; color: #fff; text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
 
     @media(max-width: 600px) {
       header { padding: 14px 20px; }
       nav { justify-content: center; flex-wrap: wrap; }
-      .hero h2 { font-size: 2.3rem; }
+      .hero h2 { font-size: 2.8rem; }
       nav a { margin: 8px 10px; }
       .hero { background-attachment: scroll; }
       .about-container { flex-direction: column; text-align: center; }
-      .about-text { text-align: center; }
     }
   </style>
 </head>
@@ -146,7 +154,7 @@
   <p><strong>1135 E Evans Ave #102</strong>, Denver, CO 80210</p>
   <p><strong>Hours:</strong> 6 AM – 6 PM | <strong>Phone:</strong> 720-947-9386</p>
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.160163351336!2d-104.9744275!3d39.6781295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f0732386921%3A0xe96c0d609711a385!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.947234397554!2d-104.97530382346761!3d39.67845627144349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f078a054881%3A0x6a0f3d9154942085!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </section>
 
