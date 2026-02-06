@@ -40,9 +40,9 @@
 
     .lang-toggle { cursor: pointer; margin-left: 15px; font-size: 0.85rem; opacity: 0.9; }
 
-    /* Hero Section with LOGO as Background */
+    /* --- LOGO AS HERO BACKGROUND --- */
     .hero { 
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('logo.jpg.JPG') center/contain no-repeat; 
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('logo.jpg.JPG') center/contain no-repeat; 
       background-attachment: fixed;
       padding: 150px 40px; 
       text-align: center; 
@@ -59,7 +59,6 @@
     section { padding: 80px 40px; max-width: 1200px; margin: auto; }
     h3.section-title { font-family: 'Montserrat'; text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--primary); }
 
-    /* Glassmorphism Cards */
     .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
     .card { 
       background: var(--glass); 
@@ -73,17 +72,16 @@
     .card:hover { transform: scale(1.05); border-color: var(--primary); }
     .card h4 { margin-bottom: 12px; color: var(--accent); font-size: 1.3rem; font-family: 'Montserrat'; }
 
-    /* About Us Layout */
     .about-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-    .about-text { flex: 1; min-width: 300px; text-align: left; }
+    .about-text { flex: 2; min-width: 300px; text-align: left; }
     .about-image { flex: 1; min-width: 300px; }
-    .about-image img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid var(--primary); }
+    .about-image img { width: 100%; border-radius: 20px; border: 2px solid var(--primary); }
 
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .gallery img { width: 100%; border-radius: 14px; height: 230px; object-fit: cover; transition: 0.3s; }
 
     .contact { text-align: center; }
-    iframe { width: 100%; border-radius: 14px; margin-top: 25px; height: 320px; border: 0; }
+    iframe { width: 100%; border-radius: 14px; margin-top: 25px; height: 350px; border: 0; }
 
     .qr img { width: 180px; margin-top: 20px; border-radius: 10px; background: #fff; padding: 10px; }
     footer { background: #000; color: #fff; text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
@@ -93,7 +91,7 @@
       nav { flex-direction: column; }
       nav a { margin: 8px 0 0; }
       nav img { height: 60px; }
-      .about-container { flex-direction: column; text-align: center; }
+      .hero { background-attachment: scroll; }
     }
   </style>
 </head>
@@ -151,7 +149,7 @@
   <h3 class="section-title">Visit Us</h3>
   <p><strong>1135 E Evans Ave #102</strong>, Denver, CO 80210</p>
   <p><strong>Hours:</strong> 6 AM – 6 PM | <strong>Phone:</strong> 720-947-9386</p>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.123456789!2d-104.9744!3d39.6784"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.9405615740413!2d-104.97491762343834!3d39.67807750051139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f07018378d3%3A0xc023e387c961e5f8!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
 <section id="about">
