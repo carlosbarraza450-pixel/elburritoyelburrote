@@ -73,7 +73,7 @@
     .card:hover { transform: scale(1.05); border-color: var(--primary); }
     .card h4 { margin-bottom: 12px; color: var(--accent); font-size: 1.3rem; font-family: 'Montserrat'; }
 
-    /* --- ABOUT US SECTION LAYOUT --- */
+    /* About Us Layout */
     .about-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
     .about-text { flex: 1; min-width: 300px; text-align: left; }
     .about-image { flex: 1; min-width: 300px; }
@@ -94,7 +94,6 @@
       nav a { margin: 8px 0 0; }
       nav img { height: 60px; }
       .about-container { flex-direction: column; text-align: center; }
-      .about-text { text-align: center; }
     }
   </style>
 </head>
@@ -106,9 +105,9 @@
     <div>
       <a href="#home" data-en="Home" data-es="Inicio">Home</a>
       <a href="#menu" data-en="Menu" data-es="Menú">Menu</a>
-      <a href="#about" data-en="Our Story" data-es="Nuestra Historia">Our Story</a>
       <a href="#gallery" data-en="Photos" data-es="Fotos">Photos</a>
       <a href="#contact" data-en="Visit" data-es="Visítanos">Visit</a>
+      <a href="#about" data-en="Our Story" data-es="Nuestra Historia">Our Story</a>
       <a href="tel:7209479386" class="order-btn" data-en="Order Now" data-es="Ordena Ahora">Order Now</a>
       <span class="lang-toggle" onclick="toggleLang()">EN / ES</span>
       <span class="lang-toggle" onclick="document.body.classList.toggle('light-mode')">🌓</span>
@@ -123,25 +122,6 @@
   <a href="tel:7209479386" class="order-btn" data-en="Call to Order" data-es="Llama para Ordenar">Call to Order</a>
 </div>
 
-<section id="about">
-  <h3 class="section-title" data-en="Our Story" data-es="Nuestra Historia">Our Story</h3>
-  <div class="about-container">
-    <div class="about-text" data-aos="fade-right">
-      <p style="margin-bottom: 20px; font-size: 1.1rem;" data-en="At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of 'blood, sweat, and tears.' Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home." 
-         data-es="En El Burrito y el Burrote, no solo servimos comida; servimos un legado. Fundada y operada por Yamilex Rojas y Maria Rojas, nuestra cocina es el corazón de un orgulloso negocio propiedad de mujeres construido sobre una base de 'sangre, sudor y lágrimas'. Originarias de las vibrantes calles de Ciudad Juárez, Yamilex y Maria se mudaron a Denver con una misión única: compartir el sazón profundo y las tradiciones ancestrales de su hogar.">
-         At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.
-      </p>
-      <p style="font-size: 1.1rem;" data-en="Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez. When you eat with us, you aren’t just a customer; you’re a witness to our heritage." 
-         data-es="Cocinar es más que una profesión para nosotras, es una pasión de toda la vida. Mientras muchos dicen ser auténticos, nosotras lo vivimos. Nuestras recetas han sido transmitidas de generación en generación, preservadas con cuidado y traídas a la vida con el mismo fuego y sabor que encontrarías en el corazón de México. Cada plato que servimos es un testimonio de nuestro camino y un sabor verdadero y puro de Ciudad Juárez. Cuando comes con nosotras, no eres solo un cliente; eres un testigo de nuestra herencia.">
-         Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez. When you eat with us, you aren’t just a customer; you’re a witness to our heritage.
-      </p>
-    </div>
-    <div class="about-image" data-aos="fade-left">
-      <img src="owners.jpg" alt="Yamilex and Maria Rojas" onerror="this.src='https://via.placeholder.com/500x600?text=Meet+the+Owners'" />
-    </div>
-  </div>
-</section>
-
 <section id="menu">
   <h3 class="section-title" data-en="Our Menu" data-es="Nuestro Menú">Our Menu</h3>
   <div class="menu-grid">
@@ -152,7 +132,6 @@
     <div class="card" data-aos="fade-up" data-aos-delay="100"><h4>Chilaquiles</h4><p>$14</p></div>
     <div class="card" data-aos="fade-up" data-aos-delay="200"><h4>Loaded Fries</h4><p>$15</p></div>
   </div>
-
   <div class="qr" style="text-align: center;">
     <p style="margin-top:30px;">Scan for Menu</p>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://yourusername.github.io/elburritoyelburrote/#menu" alt="Menu QR Code" />
@@ -172,7 +151,26 @@
   <h3 class="section-title">Visit Us</h3>
   <p><strong>1135 E Evans Ave #102</strong>, Denver, CO 80210</p>
   <p><strong>Hours:</strong> 6 AM – 6 PM | <strong>Phone:</strong> 720-947-9386</p>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.0410411355444!2d-104.9748684!3d39.678077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f68c3b7a5d1%3A0x6790a88c3e86c07d!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.123456789!2d-104.9744!3d39.6784"></iframe>
+</section>
+
+<section id="about">
+  <h3 class="section-title" data-en="Our Story" data-es="Nuestra Historia">Our Story</h3>
+  <div class="about-container">
+    <div class="about-text" data-aos="fade-right">
+      <p style="margin-bottom: 20px; font-size: 1.1rem;" data-en="At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of 'blood, sweat, and tears.' Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home." 
+         data-es="En El Burrito y el Burrote, no solo servimos comida; servimos un legado. Fundada y operada por Yamilex Rojas y Maria Rojas, nuestra cocina es el corazón de un orgulloso negocio propiedad de mujeres construido sobre una base de 'sangre, sudor y lágrimas'. Originarias de las vibrantes calles de Ciudad Juárez, Yamilex y Maria se mudaron a Denver con una misión única: compartir el sazón profundo y las tradiciones ancestrales de su hogar.">
+         At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.
+      </p>
+      <p style="font-size: 1.1rem;" data-en="Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez. When you eat with us, you aren’t just a customer; you’re a witness to our heritage." 
+         data-es="Cocinar es más que una profesión para nosotras, es una pasión de toda la vida. Mientras muchos dicen ser auténticos, nosotras lo vivimos. Nuestras recetas han sido transmitidas de generación en generación, preservadas con cuidado y traídas a la vida con el mismo fuego y sabor que encontrarías en el corazón de México. Cada plato que servimos es un testimonio de nuestro camino y un sabor verdadero y puro de Ciudad Juárez. Cuando comes con nosotras, no eres solo un cliente; eres un testigo de nuestra herencia.">
+         Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez. When you eat with us, you aren’t just a customer; you’re a witness to our heritage.
+      </p>
+    </div>
+    <div class="about-image" data-aos="fade-left">
+      <img src="owners.jpg" alt="Yamilex and Maria Rojas" onerror="this.src='https://via.placeholder.com/500x600?text=Meet+the+Owners'" />
+    </div>
+  </div>
 </section>
 
 <footer>
