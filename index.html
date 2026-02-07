@@ -7,14 +7,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 <style>
 :root {
   --black: #111;
   --white: #ffffff;
-  --accent: #000;
-  --muted: #666;
 }
 
 * {
@@ -30,6 +26,39 @@ body {
   line-height: 1.6;
 }
 
+/* --- THE CLEAN HERO SECTION (NO INTERFERENCE) --- */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  /* Using a direct high-res Wikimedia link that won't break */
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/La_Equis_Juarez.jpg") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ALL OVERLAYS AND WHITE WASH DELETED */
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #fff;
+  /* Shadow added only for text readability over the image */
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+}
+
+/* --- RESTORED NAVIGATION & CONTENT --- */
 header {
   position: sticky;
   top: 0;
@@ -54,79 +83,6 @@ header {
   color: inherit;
 }
 
-.order-btn {
-  padding: 10px 18px;
-  border: 1px solid #000;
-  margin-left: 20px;
-  font-size: 0.9rem;
-}
-
-/* --- THE HERO FIX --- */
-.hero {
-  position: relative;
-  min-height: 85vh;
-  /* Swapped to a direct Wikipedia JPG link for better reliability */
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/La_Equis_Juarez.jpg") !important;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  background-color: #333; /* Fallback color only */
-}
-
-/* DELETED THE WHITE WASH / OVERLAY ENTIRELY */
-
-/* SMOKE / VAPOR ANIMATION */
-.vapor-container {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.smoke {
-  position: absolute;
-  bottom: -50px;
-  background: rgba(255, 255, 255, 0.4);
-  filter: blur(40px);
-  border-radius: 50%;
-  animation: rise 6s infinite ease-in;
-  opacity: 0;
-}
-
-@keyframes rise {
-  0% { transform: translateY(0) scale(1); opacity: 0; }
-  20% { opacity: 0.6; }
-  100% { transform: translateY(-700px) scale(4); opacity: 0; }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 40px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: #fff;
-  text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
-}
-
-.hero img {
-  max-width: 280px;
-  margin-bottom: 20px;
-}
-
-/* --- END HERO FIX --- */
-
 section {
   max-width: 1100px;
   margin: auto;
@@ -139,41 +95,24 @@ section {
   margin-bottom: 40px;
 }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-
-.menu-item {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 15px;
-}
-
-.menu-item h4 { font-weight: 500; }
-.menu-item span { float: right; }
-
 .about {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 50px;
 }
 
-.about img { width: 100%; border-radius: 4px; }
-
-footer {
-  border-top: 1px solid #eee;
-  padding: 40px 20px;
-  text-align: center;
-  color: #777;
+.about img {
+  width: 100%;
+  border-radius: 4px;
 }
 
 @media (max-width: 800px) {
-  .menu-grid, .about { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2.5rem; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -184,33 +123,13 @@ footer {
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <a href="https://instagram.com/ElBurrito&ElBurrote" target="_blank">Instagram</a>
-      <a href="tel:7209479386" class="order-btn">Order Online</a>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="vapor-container">
-    <div class="smoke" style="left: 10%; width: 100px; height: 100px; animation-delay: 0s;"></div>
-    <div class="smoke" style="left: 40%; width: 150px; height: 150px; animation-delay: 2s;"></div>
-    <div class="smoke" style="left: 70%; width: 120px; height: 120px; animation-delay: 4s;"></div>
-  </div>
-
-  <div class="hero-content" data-aos="fade-up">
-    <img src="logo.png" alt="Logo">
+  <div class="hero-content">
     <h1>From Ciudad Juárez streets,<br>to Denver eats</h1>
-  </div>
-</section>
-
-<section id="menu">
-  <h2 class="section-title">Menu</h2>
-  <div class="menu-grid">
-    <div class="menu-item"><h4>Norteños Burritos <span>$7</span></h4></div>
-    <div class="menu-item"><h4>Big Burrotes <span>$13</span></h4></div>
-    <div class="menu-item"><h4>Breakfast Burrotes <span>$10</span></h4></div>
-    <div class="menu-item"><h4>Chilaquiles <span>$14</span></h4></div>
-    <div class="menu-item"><h4>Street Tacos <span>$3 ea</span></h4></div>
-    <div class="menu-item"><h4>Loaded Fries <span>$15</span></h4></div>
   </div>
 </section>
 
@@ -218,18 +137,20 @@ footer {
   <h2 class="section-title">Our Story</h2>
   <div class="about">
     <div>
-      <p>At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.</p>
-      <p style="margin-top:15px;">Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez.</p>
+      <p>
+        At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.
+      </p>
+      <p style="margin-top:15px;">
+        Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez.
+      </p>
     </div>
     <img src="owners.jpg" alt="Owners">
   </div>
 </section>
 
 <footer>
-  © 2026 El Burrito y el Burrote Mexican Grill
+  <center style="padding: 40px;">© 2026 El Burrito y el Burrote Mexican Grill</center>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
 </body>
 </html>
