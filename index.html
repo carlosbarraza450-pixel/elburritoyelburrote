@@ -71,8 +71,8 @@ header {
 .hero {
   position: relative;
   min-height: 85vh;
-  /* UPDATED: Highly visible La Equis Statue image */
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/La_Equis_Juarez.jpg/1200px-La_Equis_Juarez.jpg") center/cover no-repeat;
+  /* CHANGED: Highly visible X Statue image */
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/La_Equis_Juarez.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,17 +80,17 @@ header {
   overflow: hidden;
 }
 
-/* Updated overlay to be transparent so the image is visible */
+/* FIXED: Changed from 0.85 white to a light dark tint so image is visible */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.3); /* Darkened slightly so text is readable, but statue stays visible */
+  background: rgba(0,0,0,0.4); 
   z-index: 1;
 }
 
 /* SMOKE/VAPOR ANIMATION */
-.vapor-container {
+.vapor-wrap {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -99,22 +99,20 @@ header {
   pointer-events: none;
 }
 
-.smoke {
+.vapor {
   position: absolute;
   bottom: -50px;
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.3);
   filter: blur(40px);
   border-radius: 50%;
-  animation: rise 6s infinite ease-in;
+  animation: rise 7s infinite ease-out;
   opacity: 0;
 }
 
 @keyframes rise {
   0% { transform: translateY(0) scale(1); opacity: 0; }
   20% { opacity: 0.5; }
-  100% { transform: translateY(-600px) scale(4); opacity: 0; }
+  100% { transform: translateY(-700px) scale(4); opacity: 0; }
 }
 
 .hero-content {
@@ -122,24 +120,23 @@ header {
   max-width: 800px;
   padding: 40px;
   z-index: 3;
-  color: white; /* Changed to white for visibility against the new background */
 }
 
 .hero img {
   max-width: 280px;
   margin-bottom: 30px;
-  filter: brightness(0) invert(1); /* Makes your logo white to match the theme */
 }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
   margin-bottom: 15px;
+  color: white; /* FIXED: Text must be white to be visible on image */
 }
 
 .hero p {
   font-size: 1.1rem;
-  color: #ddd;
+  color: #efefef;
 }
 
 section {
@@ -238,10 +235,10 @@ footer {
 </header>
 
 <section class="hero">
-  <div class="vapor-container">
-    <div class="smoke" style="left: 20%; animation-delay: 0s;"></div>
-    <div class="smoke" style="left: 45%; animation-delay: 2s;"></div>
-    <div class="smoke" style="left: 70%; animation-delay: 4s;"></div>
+  <div class="vapor-wrap">
+    <div class="vapor" style="left: 15%; width: 120px; height: 120px; animation-delay: 0s;"></div>
+    <div class="vapor" style="left: 40%; width: 180px; height: 180px; animation-delay: 2s;"></div>
+    <div class="vapor" style="left: 70%; width: 140px; height: 140px; animation-delay: 4s;"></div>
   </div>
 
   <div class="hero-content" data-aos="fade-up">
