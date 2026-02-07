@@ -68,11 +68,12 @@ header {
   font-size: 0.9rem;
 }
 
+/* --- HERO SECTION: NO WHITE WASH --- */
 .hero {
   position: relative;
   min-height: 85vh;
-  /* IMAGE OF LA EQUIS - NO INTERFERENCE */
-  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/La_Equis_Juarez.jpg") center/cover no-repeat;
+  /* LA EQUIS STATUE IMAGE */
+  background: url("https://live.staticflickr.com/8317/8014522965_4469796033_b.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,9 +81,9 @@ header {
   overflow: hidden;
 }
 
-/* WHITE WASH COMPLETELY DELETED HERE */
+/* WHITE WASH COMPLETELY REMOVED */
 
-/* STOVE SMOKE/VAPOR ANIMATION */
+/* VAPOR ANIMATION */
 .vapor-container {
   position: absolute;
   bottom: 0;
@@ -92,17 +93,17 @@ header {
   pointer-events: none;
 }
 
-.smoke-particle {
+.smoke-cloud {
   position: absolute;
   bottom: -50px;
-  background: rgba(255, 255, 255, 0.35);
-  filter: blur(35px);
+  background: rgba(255, 255, 255, 0.4);
+  filter: blur(40px);
   border-radius: 50%;
-  animation: rise-steam 7s infinite ease-in;
+  animation: rising-steam 6s infinite ease-in;
   opacity: 0;
 }
 
-@keyframes rise-steam {
+@keyframes rising-steam {
   0% { transform: translateY(0) scale(1); opacity: 0; }
   20% { opacity: 0.5; }
   100% { transform: translateY(-700px) scale(4); opacity: 0; }
@@ -124,14 +125,14 @@ header {
   font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
   margin-bottom: 15px;
-  color: #fff; /* White text for visibility on raw image */
-  text-shadow: 0px 4px 10px rgba(0,0,0,0.6); /* Shadow helps text pop over the red statue */
+  color: #fff;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
 }
 
 .hero p {
   font-size: 1.1rem;
   color: #fff;
-  text-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
 }
 
 section {
@@ -231,9 +232,9 @@ footer {
 
 <section class="hero">
   <div class="vapor-container">
-    <div class="smoke-particle" style="left: 15%; width: 120px; height: 120px; animation-delay: 0s;"></div>
-    <div class="smoke-particle" style="left: 45%; width: 180px; height: 180px; animation-delay: 2s;"></div>
-    <div class="smoke-particle" style="left: 75%; width: 130px; height: 130px; animation-delay: 4s;"></div>
+    <div class="smoke-cloud" style="left: 15%; width: 120px; height: 120px; animation-delay: 0s;"></div>
+    <div class="smoke-cloud" style="left: 45%; width: 180px; height: 180px; animation-delay: 2s;"></div>
+    <div class="smoke-cloud" style="left: 75%; width: 130px; height: 130px; animation-delay: 4s;"></div>
   </div>
 
   <div class="hero-content" data-aos="fade-up">
