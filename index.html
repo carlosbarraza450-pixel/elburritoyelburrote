@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>El Burrito y el Burrote Mexican Grill</title>
 
-<!-- Fonts similar to Molino Chido -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- AOS Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
@@ -73,22 +71,55 @@ header {
 .hero {
   position: relative;
   min-height: 85vh;
-  background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") center/cover no-repeat;
+  /* UPDATED IMAGE: La Equis Statue in Juarez */
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/La_Equis_Juarez.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.7); /* Slightly reduced opacity to make the red statue pop more */
+  z-index: 1;
+}
+
+/* SMOKE ANIMATION STYLES */
+.smoke-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.smoke {
+  position: absolute;
+  bottom: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.3);
+  filter: blur(40px);
+  border-radius: 50%;
+  animation: rise 7s infinite ease-out;
+  opacity: 0;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  20% { opacity: 0.5; }
+  50% { opacity: 0.3; }
+  100% { transform: translateY(-600px) scale(4); opacity: 0; }
 }
 
 .hero-content {
   position: relative;
+  z-index: 3;
   max-width: 800px;
   padding: 40px;
 }
@@ -205,6 +236,14 @@ footer {
 </header>
 
 <section class="hero">
+  <div class="smoke-container">
+    <div class="smoke" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="smoke" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="smoke" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="smoke" style="left: 70%; animation-delay: 1s;"></div>
+    <div class="smoke" style="left: 90%; animation-delay: 3s;"></div>
+  </div>
+
   <div class="hero-content" data-aos="fade-up">
     <img src="logo.png" alt="El Burrito y el Burrote Logo" data-aos="zoom-in" data-aos-delay="200">
     <h1 data-aos="fade-up" data-aos-delay="300">
@@ -258,7 +297,6 @@ footer {
   © 2026 El Burrito y el Burrote Mexican Grill
 </footer>
 
-<!-- AOS Script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
