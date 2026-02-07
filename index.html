@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>El Burrito y el Burrote Mexican Grill</title>
 
+<!-- Fonts similar to Molino Chido -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- AOS Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
@@ -56,17 +59,15 @@ header {
   font-weight: 500;
 }
 
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
 .order-btn {
   padding: 10px 18px;
   border: 1px solid #000;
   margin-left: 20px;
   font-size: 0.9rem;
-}
-
-.lang-toggle {
-  margin-left: 20px;
-  cursor: pointer;
-  font-weight: 500;
 }
 
 .hero {
@@ -103,6 +104,11 @@ header {
   margin-bottom: 15px;
 }
 
+.hero p {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
 section {
   max-width: 1100px;
   margin: auto;
@@ -121,10 +127,28 @@ section {
   gap: 25px;
 }
 
+.menu-item {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.menu-item h4 {
+  font-weight: 500;
+}
+
+.menu-item span {
+  float: right;
+}
+
 .about {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 50px;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 4px;
 }
 
 .gallery {
@@ -143,12 +167,6 @@ section {
   text-align: center;
 }
 
-.map {
-  margin-top: 40px;
-  width: 100%;
-  height: 450px;
-}
-
 footer {
   border-top: 1px solid #eee;
   padding: 40px 20px;
@@ -163,6 +181,10 @@ footer {
   .gallery {
     grid-template-columns: 1fr;
   }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
 }
 </style>
 </head>
@@ -173,81 +195,77 @@ footer {
   <div class="nav">
     <strong>El Burrito y el Burrote</strong>
     <div class="nav-links">
-      <a href="#menu" data-en="Menu" data-es="Menú">Menu</a>
-      <a href="#about" data-en="About" data-es="Nuestra Historia">About</a>
-      <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
-      <span class="lang-toggle" id="langToggle">ES</span>
-      <a href="tel:7209479386" class="order-btn" data-en="Order Online" data-es="Ordenar">Order Online</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="https://instagram.com/ElBurrito&ElBurrote" target="_blank">Instagram</a>
+      <a href="tel:7209479386" class="order-btn">Order Online</a>
     </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-content" data-aos="fade-up">
-    <img src="logo.png" alt="Logo">
-    <h1 
-      data-en="From Ciudad Juárez streets,<br>to Denver eats"
-      data-es="De las calles de Ciudad Juárez,<br>a los sabores de Denver">
+    <img src="logo.png" alt="El Burrito y el Burrote Logo" data-aos="zoom-in" data-aos-delay="200">
+    <h1 data-aos="fade-up" data-aos-delay="300">
       From Ciudad Juárez streets,<br>to Denver eats
     </h1>
   </div>
 </section>
 
 <section id="menu">
-  <h2 class="section-title" data-en="Menu" data-es="Menú">Menu</h2>
+  <h2 class="section-title" data-aos="fade-up">Menu</h2>
+  <div class="menu-grid">
+    <div class="menu-item" data-aos="fade-up"><h4>Norteños Burritos <span>$7</span></h4></div>
+    <div class="menu-item" data-aos="fade-up"><h4>Big Burrotes <span>$13</span></h4></div>
+    <div class="menu-item" data-aos="fade-up"><h4>Breakfast Burrotes <span>$10</span></h4></div>
+    <div class="menu-item" data-aos="fade-up"><h4>Chilaquiles <span>$14</span></h4></div>
+    <div class="menu-item" data-aos="fade-up"><h4>Street Tacos <span>$3 ea</span></h4></div>
+    <div class="menu-item" data-aos="fade-up"><h4>Loaded Fries <span>$15</span></h4></div>
+    <div class="menu-item" data-aos="fade-up"><h4>Quesabirrias Plate <span>$16</span></h4></div>
+    <div class="menu-item" data-aos="fade-up"><h4>Guisado Tacos <span>$4 ea</span></h4></div>
+  </div>
 </section>
 
 <section id="about">
-  <h2 class="section-title" data-en="Our Story" data-es="Nuestra Historia">Our Story</h2>
+  <h2 class="section-title" data-aos="fade-up">Our Story</h2>
   <div class="about">
-    <div
-      data-en="At El Burrito y el Burrote, we don’t just serve food; we serve a legacy..."
-      data-es="En El Burrito y el Burrote, no solo servimos comida; servimos un legado...">
-      At El Burrito y el Burrote, we don’t just serve food; we serve a legacy...
+    <div data-aos="fade-right">
+      <p>
+        At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.
+      </p>
+      <p style="margin-top:15px;">
+        Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez.
+      </p>
     </div>
-    <img src="owners.jpg" alt="Owners">
+    <img src="owners.jpg" alt="Owners" data-aos="fade-left">
   </div>
 </section>
 
-<section id="contact" class="contact">
-  <h2 class="section-title" data-en="Visit Us" data-es="Visítanos">Visit Us</h2>
-  <p
-    data-en="1135 E Evans Ave #102, Denver, CO 80210"
-    data-es="1135 E Evans Ave #102, Denver, CO 80210">
-    1135 E Evans Ave #102, Denver, CO 80210
-  </p>
+<section class="gallery">
+  <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85" data-aos="zoom-in">
+  <img src="https://images.unsplash.com/photo-1601924582975-7e2b1a6c4a48" data-aos="zoom-in" data-aos-delay="100">
+  <img src="https://images.unsplash.com/photo-1625944526364-0c9b9cde1c3b" data-aos="zoom-in" data-aos-delay="200">
+</section>
 
-  <!-- GOOGLE MAP EMBED — ONLY ADDITION -->
-  <div class="map">
-    <iframe
-      src="https://www.google.com/maps?q=1135+E+Evans+Ave+%23102+Denver+CO+80210&output=embed"
-      width="100%"
-      height="100%"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
+<section id="contact" class="contact">
+  <h2 class="section-title" data-aos="fade-up">Visit Us</h2>
+  <p data-aos="fade-up" data-aos-delay="100">1135 E Evans Ave #102, Denver, CO 80210</p>
+  <p data-aos="fade-up" data-aos-delay="200">6 AM – 6 PM • 720-947-9386</p>
 </section>
 
 <footer>
   © 2026 El Burrito y el Burrote Mexican Grill
 </footer>
 
+<!-- AOS Script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 900, once: true });
-
-let currentLang = "en";
-document.getElementById("langToggle").onclick = () => {
-  currentLang = currentLang === "en" ? "es" : "en";
-  document.getElementById("langToggle").innerText = currentLang === "en" ? "ES" : "EN";
-
-  document.querySelectorAll("[data-en]").forEach(el => {
-    el.innerHTML = el.getAttribute(`data-${currentLang}`);
+  AOS.init({
+    duration: 900,
+    easing: 'ease-out-cubic',
+    once: true
   });
-};
 </script>
 
 </body>
