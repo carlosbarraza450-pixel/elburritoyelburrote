@@ -1,174 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>El Burrito y el Burrote Mexican Grill</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Burrito y el Burrote | Juarez to Denver</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #ff0000; /* Subtle nod to La Equis */
+        }
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            line-height: 1.2;
+            overflow-x: hidden;
+        }
 
-<style>
-:root {
-  --black: #111;
-  --white: #ffffff;
-}
+        /* --- Navigation --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: #fff;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 5%;
+            mix-blend-mode: difference; /* Molino-style blending */
+        }
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.4rem; letter-spacing: -1px; color: white; }
+        .nav-links a { text-decoration: none; color: white; margin-left: 40px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+        /* --- HERO SECTION: LA EQUIS (NO WASH) --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            /* High-res direct link to ensure visibility */
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/e3/La_Equis_Juarez.jpg') center center / cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 100px;
+        }
+        .hero h1 { 
+            font-family: 'Syncopate', sans-serif; 
+            font-size: clamp(2rem, 8vw, 6rem); 
+            color: white; 
+            text-transform: uppercase;
+            line-height: 0.9;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--white);
-  color: var(--black);
-  line-height: 1.6;
-}
+        /* --- Content Sections --- */
+        section { padding: 120px 5%; border-top: 1px solid #000; }
+        .section-label { font-family: 'Syncopate', sans-serif; font-size: 0.7rem; margin-bottom: 40px; text-transform: uppercase; }
 
-header {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 100;
-  border-bottom: 1px solid #e5e5e5;
-}
+        /* --- Menu: Minimalist Grid --- */
+        .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 80px; }
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #000; padding: 15px 0; }
+        .item-name { font-family: 'Syncopate', sans-serif; font-size: 1.1rem; text-transform: uppercase; }
+        .item-price { font-weight: 700; font-size: 1.1rem; }
 
-.nav {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+        /* --- About: Original Story --- */
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+        .about-text p { font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; letter-spacing: -0.5px; }
+        .owner-slot { width: 100%; height: 70vh; background: #f0f0f0; overflow: hidden; }
+        .owner-slot img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+        .owner-slot:hover img { filter: grayscale(0%); }
 
-.nav-links a {
-  margin-left: 25px;
-  font-weight: 500;
-  text-decoration: none;
-  color: inherit;
-}
+        /* --- Gallery: Big Visuals --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-card { height: 500px; background: #eee; position: relative; overflow: hidden; }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-card span { 
+            position: absolute; bottom: 20px; left: 20px; color: white; 
+            font-family: 'Syncopate', sans-serif; font-size: 0.8rem; z-index: 2;
+        }
 
-.order-btn {
-  padding: 10px 18px;
-  border: 1px solid #000;
-  margin-left: 20px;
-  font-size: 0.9rem;
-}
+        /* --- Google Maps --- */
+        .map-wrapper { height: 60vh; width: 100%; border-top: 1px solid #000; filter: grayscale(100%) invert(100%); }
 
-/* --- THE FIX: HERO SECTION --- */
-.hero {
-  position: relative;
-  min-height: 85vh;
-  /* UPDATED: Using a high-availability direct link for La Equis */
-  background-image: url("https://images.squarespace-cdn.com/content/v1/56828552a12f44019f69796e/1451405175514-A2A94K93K1K92J9K3K1K/Juarez_X.jpg") !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
+        footer { padding: 100px 5%; background: #000; color: #fff; display: flex; justify-content: space-between; }
+        .footer-logo { font-family: 'Syncopate', sans-serif; font-size: 3vw; }
 
-/* REMOVED: All dark/white overlays that were interfering with the image */
-
-.hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 800px;
-  padding: 40px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: #fff;
-  /* Shadow added for text readability against the red statue */
-  text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
-}
-
-/* Note: Ensure logo.png is in the same folder as this file on your computer */
-.hero img {
-  max-width: 250px;
-  margin-bottom: 20px;
-}
-
-/* --- SECTIONS --- */
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 90px 20px;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  margin-bottom: 40px;
-}
-
-.about {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 50px;
-}
-
-.about img {
-  width: 100%;
-  border-radius: 4px;
-}
-
-@media (max-width: 800px) {
-  .about { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 2.5rem; }
-  .nav { flex-direction: column; gap: 10px; }
-}
-</style>
+        @media (max-width: 900px) {
+            .menu-grid, .about-container, .gallery-grid { grid-template-columns: 1fr; }
+            nav .nav-links { display: none; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <div class="nav">
-    <strong>El Burrito y el Burrote</strong>
-    <div class="nav-links">
-      <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="https://instagram.com/ElBurrito&ElBurrote" target="_blank">Instagram</a>
-      <a href="tel:7209479386" class="order-btn">Order Online</a>
+    <nav>
+        <div class="logo">BURRITO / BURROTE</div>
+        <div class="nav-links">
+            <a href="#menu">Menu</a>
+            <a href="#about">Story</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#map">Find Us</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 data-aos="fade-up" data-aos-duration="1500">Juarez Streets<br>Denver Eats</h1>
+    </section>
+
+    <section id="menu">
+        <p class="section-label">Selected Offerings</p>
+        <div class="menu-grid">
+            <div class="menu-item" data-aos="fade-up">
+                <span class="item-name">Norteños Burritos</span><span class="item-price">$7</span>
+            </div>
+            <div class="menu-item" data-aos="fade-up">
+                <span class="item-name">Big Burrotes</span><span class="item-price">$13</span>
+            </div>
+            <div class="menu-item" data-aos="fade-up">
+                <span class="item-name">Breakfast Burrotes</span><span class="item-price">$10</span>
+            </div>
+            <div class="menu-item" data-aos="fade-up">
+                <span class="item-name">Chilaquiles</span><span class="item-price">$14</span>
+            </div>
+            <div class="menu-item" data-aos="fade-up">
+                <span class="item-name">Street Tacos</span><span class="item-price">$3</span>
+            </div>
+            <div class="menu-item" data-aos="fade-up">
+                <span class="item-name">Loaded Fries</span><span class="item-price">$15</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <p class="section-label">The Legacy</p>
+        <div class="about-container">
+            <div class="about-text" data-aos="fade-up">
+                <p>At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears."</p>
+                <p>Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.</p>
+                <p>Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez.</p>
+            </div>
+            <div class="owner-slot" data-aos="reveal-left">
+                <img src="owners.jpg" alt="Yamilex and Maria Rojas">
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <p class="section-label">Visual Menu</p>
+        <div class="gallery-grid">
+            <div class="gallery-card" data-aos="zoom-in">
+                <span>01 / Norteño Burritos</span>
+                <img src="https://images.unsplash.com/photo-1626700051175-6818013e184f?auto=format&fit=crop&w=800" alt="Burrito">
+            </div>
+            <div class="gallery-card" data-aos="zoom-in" data-aos-delay="100">
+                <span>02 / Street Tacos</span>
+                <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=800" alt="Tacos">
+            </div>
+            <div class="gallery-card" data-aos="zoom-in" data-aos-delay="200">
+                <span>03 / Chilaquiles</span>
+                <img src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=800" alt="Chilaquiles">
+            </div>
+        </div>
+    </section>
+
+    <div id="map" class="map-wrapper">
+        <iframe width="100%" height="100%" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.57863706059!2d-104.9752528!3d39.6783857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7ef88219662b%3A0xc3f19114b35e38d!2s1135%20E%20Evans%20Ave%20%23102%2C%20Denver%2C%20CO%2080210!5e0!3m2!1sen!2sus!4v1700000000000"></iframe>
     </div>
-  </div>
-</header>
 
-<section class="hero">
-  <div class="hero-content" data-aos="fade-up">
-    <img src="logo.png" alt="El Burrito y el Burrote">
-    <h1>From Ciudad Juárez streets,<br>to Denver eats</h1>
-  </div>
-</section>
+    <footer>
+        <div class="footer-logo">EL BURRITO<br>Y EL BURROTE</div>
+        <div class="footer-contact">
+            <p>1135 E EVANS AVE #102</p>
+            <p>DENVER, CO 80210</p>
+            <p style="margin-top: 20px;">6AM — 6PM</p>
+        </div>
+    </footer>
 
-<section id="about">
-  <h2 class="section-title">Our Story</h2>
-  <div class="about">
-    <div>
-      <p>At El Burrito y el Burrote, we don’t just serve food; we serve a legacy. Founded and operated by Yamilex Rojas and Maria Rojas, our kitchen is the heart of a proud, women-owned business built on a foundation of "blood, sweat, and tears." Originating from the vibrant streets of Ciudad Juárez, Yamilex and Maria moved to Denver with a singular mission: to share the soul-deep seasoning and time-honored traditions of their home.</p>
-      <p style="margin-top:15px;">Cooking is more than a profession for us—it is a lifelong passion. While many claim authenticity, we live it. Our recipes have been whispered down through generations, preserved with care, and brought to life with the same fire and flavor you’d find in the heart of Mexico. Every plate we serve is a testament to our journey and a true, unadulterated taste of Ciudad Juárez.</p>
-    </div>
-    <img src="owners.jpg" alt="Owners">
-  </div>
-</section>
-
-<footer>
-  <center style="padding: 40px; color: #777;">© 2026 El Burrito y el Burrote Mexican Grill</center>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 </body>
 </html>
